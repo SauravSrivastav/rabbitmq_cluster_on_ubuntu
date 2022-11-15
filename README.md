@@ -35,7 +35,7 @@ Save and close the file when you are finished. Next, you can proceed to the next
 Next, you will need to install the RabbitMQ Server package on each node. You can install it by just running the following command:
 
 ```shell
-$ sudo apt-get install rabbitmq-server -y
+$ sh erlang.sh
 ```
 Once installed, start the RabbitMQ service and enable it to start at system reboot with the following command:
 
