@@ -63,7 +63,7 @@ you should see the following output:
 Next, restart the RabbitMQ service to apply the changes:
 
 ```shell
-$ sudo systemctl restart rabbitmq-server
+sudo systemctl restart rabbitmq-server
 ```
 
 You can verify the listening port with the following command:
