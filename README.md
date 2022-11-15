@@ -17,7 +17,7 @@ $ sudo apt-get update -y
 edit the /etc/hosts file on each node with the following command
 
 ```shell
-$ vi /etc/hosts
+$ sudo vi /etc/hosts
 ```
 
 Add the following lines:
