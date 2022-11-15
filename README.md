@@ -23,8 +23,8 @@ $ vi /etc/hosts
 Add the following lines:
 
 ```config
-192.168.40.10   node01
-192.168.40.11   node02
+10.139.16.4   node01
+10.139.16.5   node02
 ```
 
 Save and close the file when you are finished. Next, you can proceed to the next step.
