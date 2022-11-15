@@ -17,7 +17,7 @@ $ sudo apt-get update -y
 edit the /etc/hosts file on each node with the following command
 
 ```shell
-$ nano /etc/hosts
+$ vi /etc/hosts
 ```
 
 Add the following lines:
@@ -80,13 +80,13 @@ Copy cookie from node01 to each node. If there are other nodes, copy to them too
 
 Go to node01, open the file and copy all the contents
 ```shell
-$ sudo nano /var/lib/rabbitmq/.erlang.cookie
+$ sudo vi /var/lib/rabbitmq/.erlang.cookie
 ```
 
 Go to each other node. open the file ad paste content from node01. Then, do that to all other remaining nodes in cases of any.
 
 ```shell
-$ sudo nano /var/lib/rabbitmq/.erlang.cookie
+$ sudo vi /var/lib/rabbitmq/.erlang.cookie
 ```
 All the other RabbitMQ peer nodes should be reconfigured to join the cluster on the first node ***node01***. This step should be for all nodes except for the first one.
 
