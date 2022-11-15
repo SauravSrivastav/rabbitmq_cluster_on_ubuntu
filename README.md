@@ -4,7 +4,7 @@ RabbitMQ is a free, open-source and multi-protocol messaging broker software wri
 
 ### Prerequisites
 
-- Three server running Ubuntu 20.04
+- two server running Ubuntu 20.04
 - user with sudo permissions on each server
 
 ### Getting Started
@@ -25,7 +25,6 @@ Add the following lines:
 ```config
 192.168.40.10   node01
 192.168.40.11   node02
-192.168.40.12   node03
 ```
 
 Save and close the file when you are finished. Next, you can proceed to the next step.
