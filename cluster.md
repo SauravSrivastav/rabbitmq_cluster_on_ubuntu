@@ -6,7 +6,7 @@ The code is: Here are the detailed step-by-step instructions related to clusteri
 
 1. Edit the `/etc/hosts` file to add the hostnames and IP addresses of all machines:
 ```
-sudo nano /etc/hosts
+sudo vi /etc/hosts
 ```
 Add the following lines:
 ```
