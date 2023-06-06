@@ -1,0 +1,69 @@
+https://www.vultr.com/docs/setup-rabbitmq-cluster-on-ubuntu/
+
+Node 1
+sudo vim /etc/hosts
+
+10.138.16.4 npprdw-rmq-node1
+10.138.16.5 npprdw-rmq-node2
+10.138.16.6 npprdw-rmq-node3
+
+cat vim /etc/hosts
+
+sudo hostnamectl set-hostname npprdw-rmq-node1 --static
+ping -c 3 npprdw-rmq-node2
+ping -c 3 npprdw-rmq-node3
+
+sudo chmod 777 /var/lib/rabbitmq/.erlang.cookie
+sudo scp /var/lib/rabbitmq/.erlang.cookie operatorrmq@npprdw-rmq-node2:/var/lib/rabbitmq/
+sudo scp /var/lib/rabbitmq/.erlang.cookie operatorrmq@npprdw-rmq-node3:/var/lib/rabbitmq/
+
+sudo cat /var/lib/rabbitmq/.erlang.cookie
+
+
+
+Node 2
+sudo vim /etc/hosts
+
+10.138.16.4 npprdw-rmq-node1
+10.138.16.5 npprdw-rmq-node2
+10.138.16.6 npprdw-rmq-node3
+
+cat vim /etc/hosts
+
+sudo hostnamectl set-hostname npprdw-rmq-node2 --static
+ping -c 3 npprdw-rmq-node2
+ping -c 3 npprdw-rmq-node3
+sudo chmod 777 /var/lib/rabbitmq/.erlang.cookie
+
+sudo cat /var/lib/rabbitmq/.erlang.cookie
+
+sudo systemctl restart rabbitmq-server
+sudo rabbitmqctl stop_app
+sudo rabbitmqctl join_cluster rabbit@npprdw-rmq-node1
+sudo rabbitmqctl start_app
+
+
+
+
+Node 3
+sudo vim /etc/hosts
+
+10.138.16.4 npprdw-rmq-node1
+10.138.16.5 npprdw-rmq-node2
+10.138.16.6 npprdw-rmq-node3
+
+cat vim /etc/hosts
+
+sudo hostnamectl set-hostname npprdw-rmq-node3 --static
+ping -c 3 npprdw-rmq-node1
+ping -c 3 npprdw-rmq-node2
+
+sudo chmod 777 /var/lib/rabbitmq/.erlang.cookie
+
+sudo cat /var/lib/rabbitmq/.erlang.cookie
+
+sudo systemctl restart rabbitmq-server
+sudo rabbitmqctl stop_app
+sudo rabbitmqctl join_cluster rabbit@npprdw-rmq-node1
+sudo rabbitmqctl start_app
+
